@@ -1,8 +1,9 @@
 package ua.epam.spring.core.loggers;
 
-import ua.epam.spring.core.EventLogger;
+import org.springframework.stereotype.Component;
 import ua.epam.spring.core.beans.Event;
 
+@Component
 public class ConsoleEventLogger implements EventLogger {
     public void logEvent(Event event){
         System.out.println(event.toString());
