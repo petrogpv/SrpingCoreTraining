@@ -5,6 +5,14 @@ public class Client {
     private String fullName;
     private String greeting;
 
+    public Client(String id, String fullName, String greeting) {
+        this.id = id;
+        this.fullName = fullName;
+        this.greeting = greeting;
+    }
+
+    public Client() {
+    }
 
     public String getId() {
         return id;

@@ -21,6 +21,7 @@ public class Event {
     @Autowired
     @Qualifier("newDate")
     private Date date;
+    @Autowired
     private DateFormat dateFormat;
 
     public Event(Date date, DateFormat dateFormat) {

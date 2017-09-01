@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import ua.epam.spring.core.App;
 import ua.epam.spring.core.beans.Client;
+import ua.epam.spring.core.loggers.*;
 
 @Configuration
 @PropertySource("classpath:client.properties")
@@ -34,6 +36,27 @@ public class AppConfig {
         client.setFullName(environment.getRequiredProperty("name"));
         client.setGreeting(environment.getProperty("greeting"));
         return client;
+    }
+
+    @Bean
+    public EventLogger consoleEventLogger(){
+        return new ConsoleEventLogger();
+    }
+    @Bean
+    public EventLogger fileEventLogger(){
+        return new FileEventLogger();
+    }
+    @Bean
+    public EventLogger combinedEventLogger(){
+        return new CombinedEventLogger();
+    }
+    @Bean
+    public EventLogger cacheFileEventLogger(){
+        return new CacheFileEventLogger();
+    }
+    @Bean
+    public App app(){
+        return new App();
     }
 
 }

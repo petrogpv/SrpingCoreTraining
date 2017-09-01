@@ -14,9 +14,12 @@ import java.util.Collection;
 public class CombinedEventLogger implements EventLogger{
 
     @Resource(name = "combinedLoggers")
-    private final Collection<EventLogger> loggers;
+    private Collection<EventLogger> loggers;
 
-    public CombinedEventLogger(Collection<EventLogger> loggers) {
+    public CombinedEventLogger() {
+    }
+
+        public CombinedEventLogger(Collection<EventLogger> loggers) {
         this.loggers = loggers;
     }
 

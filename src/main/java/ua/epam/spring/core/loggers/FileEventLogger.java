@@ -24,6 +24,10 @@ public class FileEventLogger implements EventLogger {
         this.filename = filename;
     }
 
+
+    public FileEventLogger() {
+    }
+
     public void logEvent(Event event) {
         try {
 //            FileUtils.writeStringToFile(file, event.toString() + "\n", "UTF-8");

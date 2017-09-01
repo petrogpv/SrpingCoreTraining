@@ -1,5 +1,6 @@
 package ua.epam.spring.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,13 +13,21 @@ import ua.epam.spring.core.loggers.EventLogger;
 import ua.epam.spring.core.spring.AppConfig;
 import ua.epam.spring.core.spring.LoggerConfig;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.Map;
+
 @Service
 public class App {
-    private Client client ;
-    private Map<EventType, EventLogger> loggers;
+
+    @Autowired
+    private Client client;
+
+    @Resource(name = "defaultLogger")
     private EventLogger defaultLogger;
+
+    @Resource(name = "loggerMap")
+    private Map<EventType, EventLogger> loggers;
 
 
     public App(Client client, EventLogger eventLogger, Map<EventType, EventLogger> loggers) {
@@ -28,7 +37,10 @@ public class App {
         this.loggers = loggers;
     }
 
-//    public static void main(String[] args) {
+    public App() {
+    }
+
+    //    public static void main(String[] args) {
 ////        ApplicationContext ctx =  new ClassPathXmlApplicationContext("config.xml");
 ////        App app = (App) ctx.getBean("app");
 ////        app.logEvent("Some message for 1");
