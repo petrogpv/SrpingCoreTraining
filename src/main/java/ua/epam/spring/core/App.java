@@ -64,7 +64,7 @@ public class App {
 public static void main(String[] args) {
     AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
     ctx.register(AppConfig.class, LoggerConfig.class);
-    ctx.scan("com.yet.spring.core");
+    ctx.scan("ua.epam.spring.core");
     ctx.refresh();
 
     App app = (App) ctx.getBean("app");

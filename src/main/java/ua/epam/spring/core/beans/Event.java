@@ -24,6 +24,9 @@ public class Event {
     @Autowired
     private DateFormat dateFormat;
 
+    public Event() {
+    }
+
     public Event(Date date, DateFormat dateFormat) {
         id = new Random().nextInt();
         this.date = date;

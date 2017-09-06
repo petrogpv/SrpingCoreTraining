@@ -17,7 +17,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ua.epam.spring.core.beans.EventType;
 import ua.epam.spring.core.loggers.EventLogger;
 
-
 @Configuration
 public class LoggerConfig {
 
